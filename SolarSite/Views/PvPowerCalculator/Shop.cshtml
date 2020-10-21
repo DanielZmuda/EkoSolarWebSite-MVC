@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SolarSite.Entities.PvPanels>
+
+
+ <div class="row">
+     <div class="col-3 .col-12">
+                <div class="input-group">
+                    
+                     <ul id="filters">
+                         <li>
+                             <input type="checkbox" value="poli" id="filter-poli" />
+                             <label for="filter-poli">Moduły polikrystaliczne</label>
+                         </li>
+                         <li>
+                             <input type="checkbox" value="mono" id="filter-mono" />
+                             <label for="filter-mono">Moduły monokrystaliczne</label>
+                         </li>
+                         <li>
+                             <input type="checkbox" value="inverters" id="filter-inverters" />
+                             <label for="filter-inverters">Falowniki</label>
+                         </li>
+                     </ul>
+                 </div>
+
+     </div>
+
+    <div class="col-9">
+        <div class="row">
+
+            @foreach (var p in Model)
+            {
+         
+            <div class="col-6 ">
+                <div class="border bg-light rounded p-2">
+                    <img src="~/img/@(p.Zdjecie).jpg" width="300" height="300" class="img-fluid" alt="" />
+                   <br />
+                  
+                    <ul>
+                        <li>Producent: @p.Producent</li>
+                        <li>Moc: @p.Moc W</li>
+                        <li>Wymiary: @p.Szerokosc x @p.Wysokosc x @p.Grubosc mm</li>
+                        <li>Typ: @p.Typ</li>
+                        <li>Wydajność: @p.Wydajnosc %</li>
+                        <li>Waga: @p.Waga kg</li>
+                    </ul>
+                    
+                     <input type="number"/>
+                    <button id="buyButton" class="btn btn-success">Kup!</button>
+                </div>
+            </div>
+            }
+        </div>
+</div>
+</div>

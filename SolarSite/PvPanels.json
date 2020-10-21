@@ -1,0 +1,57 @@
+[
+  {
+    "Producent":"ET-SOLAR",
+    "Moc":"270",
+    "Typ":"Polikrystaliczny",
+    "Wysokosc":"1640",
+    "Szerokosc":"992",
+    "Grubosc":"35",
+    "Waga":"18,5",
+    "Wydajnosc":"16,6",
+    "Zdjecie":"Et-solar270"
+  },
+  {
+    "Producent":"TALESUN",
+    "Moc":"280",
+    "Typ":"Polikrystaliczny",
+    "Wysokosc":"1650",
+    "Szerokosc":"992",
+    "Grubosc":"35",
+    "Waga":"18,5",
+    "Wydajnosc":"17,1",
+    "Zdjecie":"TaleSun 280W"
+  },
+  {
+    "Producent": "SHARP",
+    "Moc": "275 ",
+    "Typ": "Polikrystaliczny",
+    "Wysokosc": "1640",
+    "Szerokosc": "992",
+    "Grubosc": "35",
+    "Waga": "18,5",
+    "Wydajnosc": "16,9",
+    "Zdjecie": "Sharp 275W"
+  },
+  {
+    "Producent":"LG",
+    "Moc": "335",
+    "Typ": "Monokrystaliczny",
+    "Wysokosc": "1686",
+    "Szerokosc": "1016",
+    "Grubosc": "40",
+    "Waga": "18",
+    "Wydajnosc": "19,8",
+    "Zdjecie": "LG 335W"
+  },
+  {
+    "Producent": "LONGi",
+    "Moc": "310",
+    "Typ": "Monokrystaliczny",
+    "Wysokosc": "1650",
+    "Szerokosc": "991",
+    "Grubosc": "40",
+    "Waga": "18,2",
+    "Wydajnosc": "19",
+    "Zdjecie": "LONGi 310W"
+  }
+]

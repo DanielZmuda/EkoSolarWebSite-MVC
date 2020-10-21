@@ -1,0 +1,63 @@
+﻿@model PvPowerCalculatorModel
+@{
+    ViewData["Title"] = "Pv system power Calculator";
+}
+
+
+<body>
+    <header>
+        <div class="text-center">
+            <h1 class="display-4">Kalkulator uzysków energii elektrycznej z instalacji fotowoltaicznej</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core"></a>.</p>
+        </div>
+    </header>
+
+    <div>
+        <text> </text>
+    </div>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6 .col-12">
+                <div>
+                    <label> Wybierz lokalizację:</label>
+                    <select asp-for="Lokalizacja">
+                        <option>Kraków</option>
+                        <option>Katowice</option>
+                        <option>Warszawa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label> Kąt nachylenia instalacji:</label>
+                    <input type="text" id="textInput" value="35" asp-for="KatPochylenia" />
+                    <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput(value);" />
+                </div>
+
+                <div class="form-group">
+                    <label> Kąt odchylenia względem południa:</label>
+                    <input type="text" id="textInput2" value="35" asp-for="KatOdchylenia"/>
+                    <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput2(value);" />
+                </div>
+
+                <div class="form-group">
+                    <label> Moc instalacji fotowoltaicznej (kW) </label>
+                    <input type="text" id="textInput3" value="35" asp-for="MocInstalacji">
+                    <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput3(value);" />
+                </div>
+
+                <div class="text-center">
+                    <button id="confirmButton" class=" = " btn btn-success">Oblicz</button>
+                </div>
+
+                <div> 
+                   @ViewBag.UserMessage 
+                </div>
+            </div>
+
+            <div class="img-fluid col-md-6">
+                <img src="~/img/Solar.jpg" />
+            </div>
+        </div>
+    </form>
+
+</body>

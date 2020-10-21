@@ -1,0 +1,7 @@
+
+  {
+    "ConnectionStrings": {
+      "PvPanelDb": "server=(localdb)\\MSSQLLocalDB;Initial Catalog=PvPanelDb; Integrated Security=True;"
+    }
+  }
+

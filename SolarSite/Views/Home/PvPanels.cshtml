@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SolarSite.Entities.PvPanels>
+@{
+    ViewData["Title"] = "Katalog falowników";
+}
+<body>
+    <header class="container-fluid">
+        <div class="text-center">
+            <h3>Moduły fotowoltaiczne dostępne w naszej firmie są sprowadzane od najlepszych producentów na rynku. Posiadamy panele monokrystaliczne, polikrystaliczne oraz moduły </h3>
+            <p></p>
+        </div>
+    </header>
+    <div class="col-9">
+        <div class="row">
+
+            @foreach (var p in Model)
+            {
+
+                <div class="col-6">
+                    <div class="border bg-light rounded p-2">
+                        <img src="~/img/@(p.Zdjecie).jpg" width="300" height="300"/>
+                        <br />
+
+                        <ul>
+                            <li>Producent: @p.Producent</li>
+                            <li>Moc: @p.Moc W</li>
+                            <li>Wymiary: @p.Szerokosc x @p.Wysokosc x @p.Grubosc mm</li>
+                            <li>Typ: @p.Typ</li>
+                            <li>Wydajność: @p.Wydajnosc %</li>
+                            <li>Waga: @p.Waga kg</li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
