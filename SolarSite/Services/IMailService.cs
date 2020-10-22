@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace SolarSite.Services
 {
-    public interface IPvPowerCalculator
+    public interface IMailService
     {
-        int CalculatedPvPower(string lokalizacja, int moc, int katpolozenia, int katodchylenia);
+         void SendMessage(string to, string subject, string body);
     }
 }

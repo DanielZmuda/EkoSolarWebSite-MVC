@@ -1,8 +1,10 @@
-﻿using SolarSite.Entities;
+﻿using SolarSite.Data.Entities;
+using SolarSite.Entities;
 using SolarSite.PvPanelsDbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SolarSite.Data.Repository
@@ -28,6 +30,10 @@ namespace SolarSite.Data.Repository
             return _ctx.PvPanels
                 .Where(p => p.Typ == type)
                 .ToList();
+        }
+        public IEnumerable<SolarRadiation> GetPropertyValue(int month)
+        {
+            return _ctx.SolarRadiations.Where(p => p.Id == month).ToList();
         }
 
         public bool SaveAll()

@@ -27,7 +27,7 @@ namespace SolarSite
             using (var scope = scopeFatocry.CreateScope())
                 { 
                     var seeder = scope.ServiceProvider.GetService<PvPanelsSeeder>();
-                    seeder.Seed();
+                    seeder.SeedAsync().Wait();
                 }
         }
 

@@ -1,4 +1,5 @@
-﻿using SolarSite.Entities;
+﻿using SolarSite.Data.Entities;
+using SolarSite.Entities;
 using System.Collections.Generic;
 
 namespace SolarSite.Data.Repository
@@ -7,6 +8,7 @@ namespace SolarSite.Data.Repository
     {
         IEnumerable<PvPanels> GetAll();
         IEnumerable<PvPanels> GetByType(string type);
+        IEnumerable<SolarRadiation> GetPropertyValue(int month);
         bool SaveAll();
     }
 }

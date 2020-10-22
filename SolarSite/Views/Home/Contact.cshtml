@@ -1,0 +1,85 @@
+﻿@model ContactViewModel
+@{
+    ViewBag.Title = "Contact Us";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+    
+}
+
+<head>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4MgQIOLwbmL_mRSYv9XBOT_CMcc6H_Os&callback=initMap&libraries=&v=weekly"></script>
+    <script>
+ function initMap(){
+       const krakow = { lat: 50.051131, lng: 19.942120 };
+        // The map, centered at Cracov
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: krakow,
+        });
+        // The marker, positioned at Cracov
+     const marker = new google.maps.Marker({
+         position: krakow,
+          map: map,
+        });
+      }
+
+    </script>
+</head>
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name">Twoje imię:</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email:</label>
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subject">Temat:</label>
+                    <input type="text" asp-for="Subject" class="form-control" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message">Twoja wiadomość:</label>
+                    <textarea rows="4" asp-for="Message" class="form-control"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-envelope"></i> Wyślij wiadomość</button>
+                    <div class="text-success">@ViewBag.UserMessage</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div>
+            <p><h5><b>Nasza dane: </b></h5></p>
+            <hr />
+            <b>Adres: </b> ul. Krakowska 5, Kraków <br />
+                                                   <b>Nr tel:</b> +48 132 213 123<br />
+                                                                                 <b>Email:</b> ecoEnergy@gmail.com<br />
+        </div>
+        <hr/>
+        <h5>Znajdź nas na mapie!</h5>
+        <!--The div element for the map -->
+        <div id="map"></div>
+    </div>
+</div>
+
+
+
+
+
+
+

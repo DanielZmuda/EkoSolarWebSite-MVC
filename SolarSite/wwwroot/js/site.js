@@ -9,4 +9,6 @@ function updateTextInput2(val) {
 function updateTextInput3(val) {
     document.getElementById('textInput3').value = val;
 }
+
+
 // Write your JavaScript code.

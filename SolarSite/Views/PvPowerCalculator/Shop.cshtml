@@ -1,27 +1,34 @@
 ﻿@model IEnumerable<SolarSite.Entities.PvPanels>
 
 
- <div class="row">
-     <div class="col-3 .col-12">
-                <div class="input-group">
-                    
-                     <ul id="filters">
-                         <li>
-                             <input type="checkbox" value="poli" id="filter-poli" />
-                             <label for="filter-poli">Moduły polikrystaliczne</label>
-                         </li>
-                         <li>
-                             <input type="checkbox" value="mono" id="filter-mono" />
-                             <label for="filter-mono">Moduły monokrystaliczne</label>
-                         </li>
-                         <li>
-                             <input type="checkbox" value="inverters" id="filter-inverters" />
-                             <label for="filter-inverters">Falowniki</label>
-                         </li>
-                     </ul>
-                 </div>
 
-     </div>
+ <div class="row">
+     <form method="get">
+         <div class="col-3 .col-12">
+             <div class="input-group">
+
+                 <ul id="filters">
+                     <li>
+                         <input type="radio" value="Polikrystaliczny" id="filter-poli" name="sortorder" />
+                         <label for="filter-poli">Moduły polikrystaliczne</label>
+                     </li>
+                     <li>
+                         <input type="radio" value="Monokrystaliczny" id="filter-mono" name="sortorder" />
+                         <label for="filter-mono">Moduły monokrystaliczne</label>
+                     </li>
+                     <li>
+                         <input type="radio" value="BIPV" id="filter-bipv"  name="sortorder"/>
+                         <label for="filter-bipv">BIPV</label>
+                     </li>
+                 </ul>
+                 <span class="input-group-btn">
+                     <button id="filterButton" class=" btn-dark">Filtruj</button>
+                 </span>
+             </div>
+          
+
+         </div>
+     </form>
 
     <div class="col-9">
         <div class="row">
@@ -29,9 +36,9 @@
             @foreach (var p in Model)
             {
          
-            <div class="col-6 ">
+            <div class="col-4">
                 <div class="border bg-light rounded p-2">
-                    <img src="~/img/@(p.Zdjecie).jpg" width="300" height="300" class="img-fluid" alt="" />
+                    <div class="text-center"> <img src="~/img/@(p.Zdjecie).jpg" width="300" height="300" class="img-fluid" alt="" /></div>
                    <br />
                   
                     <ul>

@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SolarSite.Data.Entities;
 using SolarSite.Data.Repository;
 
 using SolarSite.PvPanelsDbContext;
@@ -28,12 +30,24 @@ namespace SolarSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<StoreUser, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = false;
+                cfg.Password.RequireUppercase = false;
+            }
+            )
+                .AddEntityFrameworkStores<PvPanelsContext>();
+
             services.AddDbContext<PvPanelsContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("PvPanelDb"));
                 });
-            services.AddTransient<IPvPowerCalculator, PvPowerCalculator>();
+            services.AddTransient<IPvCalculator, PvCalculator>();
             services.AddTransient<PvPanelsSeeder>();
+
+            services.AddTransient<IMailService, MailService>();
+
             services.AddScoped<IPvPanelsRepository, PvPanelsRepository>();
             services.AddControllersWithViews();
         }
@@ -54,7 +68,11 @@ namespace SolarSite
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseRouting();
+
 
             app.UseAuthorization();
 

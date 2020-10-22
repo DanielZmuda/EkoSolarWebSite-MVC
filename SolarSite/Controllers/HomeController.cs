@@ -16,16 +16,18 @@ namespace SolarSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IPvPowerCalculator _pvPowerCalculator;
+        private readonly IPvCalculator _pvPowerCalculator;
         private readonly IPvPanelsRepository _repository;
+        private readonly IMailService _mailService;
 
-        public HomeController(ILogger<HomeController> logger, IPvPowerCalculator pvPowerCalculator, IPvPanelsRepository repository)
+        public HomeController(ILogger<HomeController> logger, IPvCalculator pvPowerCalculator, IPvPanelsRepository repository, IMailService mailService)
         {
             _logger = logger;
             _pvPowerCalculator = pvPowerCalculator;
             _repository = repository;
+            _mailService = mailService;
         }
-
+        
         public IActionResult Index()
         {
             return View();
@@ -36,31 +38,27 @@ namespace SolarSite.Controllers
             return View();
         }
 
-        public IActionResult Inverters()
+        [HttpGet("contact")]
+        public IActionResult Contact()
         {
             return View();
         }
-        public IActionResult PvPowerCalculator()
+
+        [HttpPost("contact")]
+        public IActionResult Contact(ContactViewModel model)
         {
-            
-            return View();
-        }
-
-
-
-        [HttpPost]
-        public IActionResult PvPowerCalculator(PvPowerCalculatorModel model)
-        {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                Console.WriteLine("Obliczanie wygenerowanej energii instalacji");
-                @ViewBag.UserMessage= "Twoja instalacja w ciągu wygeneruje: " + _pvPowerCalculator.CalculatedPvPower(model.Lokalizacja, model.MocInstalacji, model.KatPochylenia, model.KatOdchylenia) + "kWh energi elektrycznej w ciągu roku !!!";
-            }else
-            {
-
+                // Send the email
+                _mailService.SendMessage("daniel@gmail.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
+                ViewBag.UserMessage = "Wiadomość została wysłana";
+                ModelState.Clear();
             }
+
             return View();
         }
+
+
         public IActionResult PvPanels()
         {
             var results = _repository.GetAll();

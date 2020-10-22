@@ -1,4 +1,4 @@
-﻿@model PvPowerCalculatorModel
+﻿@model PvCalculatorModel
 @{
     ViewData["Title"] = "Pv system power Calculator";
 }
@@ -7,8 +7,7 @@
 <body>
     <header>
         <div class="text-center">
-            <h1 class="display-4">Kalkulator uzysków energii elektrycznej z instalacji fotowoltaicznej</h1>
-            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core"></a>.</p>
+            <h3 class="display-4">Kalkulator uzysków energii elektrycznej z instalacji fotowoltaicznej</h3>
         </div>
     </header>
 
@@ -20,7 +19,7 @@
             <div class="col-md-6 .col-12">
                 <div>
                     <label> Wybierz lokalizację:</label>
-                    <select asp-for="Lokalizacja">
+                    <select asp-for="Localization">
                         <option>Kraków</option>
                         <option>Katowice</option>
                         <option>Warszawa</option>
@@ -29,28 +28,33 @@
 
                 <div class="form-group">
                     <label> Kąt nachylenia instalacji:</label>
-                    <input type="text" id="textInput" value="35" asp-for="KatPochylenia" />
+                    <input type="text" id="textInput" value="35" asp-for="TiltAngle" />
                     <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput(value);" />
                 </div>
 
                 <div class="form-group">
-                    <label> Kąt odchylenia względem południa:</label>
-                    <input type="text" id="textInput2" value="35" asp-for="KatOdchylenia"/>
-                    <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput2(value);" />
+                    <label> Kierunek ustawienia instalacji: </label>
+                    <select asp-for="SurfaceDirection">
+                        <option>Południe</option>
+                        <option>Północ</option>
+                        <option>Wschód</option>
+                        <option>Zachód</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label> Moc instalacji fotowoltaicznej (kW) </label>
-                    <input type="text" id="textInput3" value="35" asp-for="MocInstalacji">
+                    <input type="text" id="textInput3" value="35" asp-for="InstalationPower">
                     <input type="range" min="0" max="90" step="1" value="35" onchange="updateTextInput3(value);" />
                 </div>
 
                 <div class="text-center">
-                    <button id="confirmButton" class=" = " btn btn-success">Oblicz</button>
+                    <button id="confirmButton" class="btn btn-success">Oblicz</button>
                 </div>
 
-                <div> 
-                   @ViewBag.UserMessage 
+                <div>
+                    <hr />
+                    @ViewBag.UserMessage
                 </div>
             </div>
 

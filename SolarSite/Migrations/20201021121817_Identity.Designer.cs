@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SolarSite.PvPanelsDbContext;
 
 namespace SolarSite.Migrations
 {
     [DbContext(typeof(PvPanelsContext))]
-    partial class PvPanelsContextModelSnapshot : ModelSnapshot
+    [Migration("20201021121817_Identity")]
+    partial class Identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,120 +150,6 @@ namespace SolarSite.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("SolarSite.Data.Entities.SolarRadiation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("I_E__30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_E__45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_E__60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_E__90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NE_30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NE_45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NE_60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NE_90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NW_30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NW_45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NW_60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_NW_90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_N_0")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_N__30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_N__45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_N__60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_N__90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SE_30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SE_45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SE_60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SE_90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SW_30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SW_45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SW_60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_SW_90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_S__30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_S__45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_S__60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_S__90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_W__30")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_W__45")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_W__60")
-                        .HasColumnType("int");
-
-                    b.Property<int>("I_W__90")
-                        .HasColumnType("int");
-
-                    b.Property<int>("M")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SolarRadiations");
                 });
 
             modelBuilder.Entity("SolarSite.Data.Entities.StoreUser", b =>

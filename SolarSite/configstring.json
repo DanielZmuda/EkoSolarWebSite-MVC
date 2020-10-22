@@ -1,7 +1,8 @@
 
   {
     "ConnectionStrings": {
-      "PvPanelDb": "server=(localdb)\\MSSQLLocalDB;Initial Catalog=PvPanelDb; Integrated Security=True;"
+      "PvPanelDb": "server=(localdb)\\MSSQLLocalDB;Initial Catalog=PvPanelDb; Integrated Security=True;",
+      "NaslonecznienieExcelDb": "Offline=False;Excel File='C:\\MyExcelWorkbooks\\SampleWorkbook.xlsx"
     }
   }
 
