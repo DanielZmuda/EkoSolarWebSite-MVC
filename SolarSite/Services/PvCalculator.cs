@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using SolarSite.Data.Entities;
 using SolarSite.Data.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SolarSite.Services
 {

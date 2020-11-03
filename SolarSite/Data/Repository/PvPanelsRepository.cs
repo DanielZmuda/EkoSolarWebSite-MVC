@@ -21,14 +21,14 @@ namespace SolarSite.Data.Repository
         public IEnumerable<PvPanels> GetAll()
         {
             return _ctx.PvPanels
-                .OrderBy(p => p.Moc)
+                .OrderBy(p => p.Power)
                 .ToList();
         }
 
         public IEnumerable<PvPanels> GetByType(string type)
         {
             return _ctx.PvPanels
-                .Where(p => p.Typ == type)
+                .Where(p => p.Type == type)
                 .ToList();
         }
         public IEnumerable<SolarRadiation> GetPropertyValue(int month)

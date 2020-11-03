@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarSite.Data.Repository;
@@ -37,10 +35,6 @@ namespace SolarSite.Controllers
             return View();
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
         [Authorize]
         public IActionResult Shop(string sortorder)
         {
